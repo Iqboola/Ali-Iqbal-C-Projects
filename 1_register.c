@@ -6,6 +6,7 @@ int main()
     int total_p, total_n, total_d, total_q, total_cents;
     int dollar_1, dollar_5, dollar_10, dollar_20, dollar_50, dollar_100;
     int total_1, total_5, total_10, total_20, total_50, total_100, total_dollars;
+    int grand_total, cents_remainder;
     
     printf("Enter pennies: ");
     scanf("%d", &p);
@@ -29,6 +30,17 @@ int main()
 
     total_cents = (p * 1) + (n * 5) + (d * 10) + (q * 25);
     printf("Total cents = %d\n", total_cents);
+
+    if (total_cents >= 100)
+    {
+        int dollars = total_cents / 100;
+        int cents = total_cents % 100;
+        printf("Total amount: $%d.%02d\n", dollars, cents);
+    }
+    else
+    {
+        printf("Total amount: $0.%02d\n", total_cents);
+    }
 
     printf("Enter one dollar bills: ");
     scanf("%d", &dollar_1);
@@ -61,7 +73,11 @@ int main()
     printf("Total hundreds = %d dollars\n", total_100);
 
     total_dollars = (dollar_1 * 1) + (dollar_5 * 5) + (dollar_10 * 10) + (dollar_20 * 20) + (dollar_50 * 50) + (dollar_100 * 100);
-    printf("Total dollars = %d\n", total_dollars);
+    printf("Total dollars = $%d\n", total_dollars);
+
+    grand_total = total_dollars + total_cents / 100;
+    cents_remainder = total_cents % 100;
+    printf("Final total = $%d.%02d\n", grand_total, cents_remainder);
 
     return 0;
 }
