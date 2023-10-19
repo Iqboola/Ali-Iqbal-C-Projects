@@ -1,2 +1,2 @@
-# Register-C-Project
-This is a simple C project to emulate a cash register
+# Collection of C projects
+1 - Cash register
